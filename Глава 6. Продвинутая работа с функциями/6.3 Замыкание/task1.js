@@ -1,0 +1,21 @@
+// Независимы ли счётчики?
+
+function makeCounter() {
+  let count = 0;
+
+  return function () {
+    return count++;
+  };
+}
+
+let counter = makeCounter();
+let counter2 = makeCounter();
+
+alert(counter()); // 0
+alert(counter()); // 1
+
+alert(counter2()); // 0
+alert(counter2()); // 1
+
+// Функции созданы разными вызовами makeCounter().
+// Поэтому они независимые.
